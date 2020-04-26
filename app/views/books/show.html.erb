@@ -6,7 +6,7 @@
   <%= @book.description %>
 </p>
 
-<%= image_tag("/books/#{@book.id}/cover/#{@book.cover_filename}", :style => "max-width: 330px;") if @book.cover_filename? %>
+<%= image_tag @book.cover.url, style: "max-width: 330px;" if @book.cover? %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
