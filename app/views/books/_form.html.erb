@@ -25,6 +25,13 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <%= form.label :cover, class: "col-xs-2 control-label" %>
+    <div class="col-xs-8">
+      <%= form.file_field :cover %>
+    </div>
+  </div>
+
   <div class="form-group actions">
     <div class="col-sm-offset-2 col-sm-10">
       <%= form.submit class: "btn btn-default" %>
