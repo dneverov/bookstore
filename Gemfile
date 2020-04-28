@@ -44,6 +44,8 @@ group :development do
   # Better Errors
   gem 'better_errors', '~> 2.7'
   gem 'binding_of_caller', '~> 0.8.0'
+
+  gem 'annotate', '~> 3.1', '>= 3.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
