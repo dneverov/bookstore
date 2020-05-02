@@ -2,14 +2,15 @@
 #
 # Table name: books
 #
-#  id          :bigint           not null, primary key
-#  cover       :string
-#  description :text
-#  name        :string
-#  slug        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
+#  id           :bigint           not null, primary key
+#  cover        :string
+#  description  :text
+#  name         :string
+#  published_at :datetime
+#  slug         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  user_id      :integer
 #
 # Indexes
 #

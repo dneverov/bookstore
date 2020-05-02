@@ -6,7 +6,13 @@
   <%= @book.description %>
 </p>
 
+<p>
+  <strong>Published At:</strong>
+  <span id="published-at"><%= @book.published_at %></span>
+</p>
+
 <%= image_tag @book.cover.url, style: "max-width: 330px;" if @book.cover? %>
 
+<%= link_to 'Publish', publish_book_path(@book), method: :patch, remote: true, data: {disable_with: "Publishing..."} %> |
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
