@@ -22,5 +22,5 @@ class Book < ApplicationRecord
 
   mount_uploader :cover, CoverUploader
 
-  belongs_to :user
+  belongs_to :user, optional: true
 end
