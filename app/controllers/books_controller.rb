@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.paginate(page: params[:page], per_page: 3)
+    authorize @books
   end
 
   # GET /books/1
@@ -16,6 +17,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    authorize @book
   end
 
   # GET /books/1/edit
@@ -26,6 +28,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = current_user.books.new(book_params)
+    authorize @book
 
     respond_to do |format|
       if @book.save
@@ -71,6 +74,7 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.friendly.find(params[:id])
+      authorize @book
     end
 
     # Only allow a list of trusted parameters through.

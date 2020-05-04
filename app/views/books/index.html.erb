@@ -13,9 +13,9 @@
       <tr>
         <td><h2 class="mt-0"><small><%= link_to book.name, book %></small></h2>
           <%= book.description %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', book if policy(book).show? %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) if policy(book).edit? %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' if policy(book).destroy? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,6 @@
 
 <br />
 
-<%= link_to 'New Book', new_book_path %>
+<% if policy(Book).new? %>
+<%= link_to 'New Book', new_book_path, class: 'btn btn-primary mb-10' %>
+<% end %>
