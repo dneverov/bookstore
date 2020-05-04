@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :publish]
+  load_and_authorize_resource
+
+  # before_action :set_book, only: [:show, :edit, :update, :destroy, :publish]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /books
@@ -15,7 +17,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    # @book = Book.new
   end
 
   # GET /books/1/edit
@@ -25,7 +27,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = current_user.books.new(book_params)
+    # @book = current_user.books.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -69,9 +71,9 @@ class BooksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.friendly.find(params[:id])
-    end
+    # def set_book
+    #   @book = Book.friendly.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def book_params

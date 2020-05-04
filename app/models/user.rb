@@ -9,6 +9,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -29,5 +30,17 @@ class User < ApplicationRecord
 
   def send_notification
     AdminMailer.new_user(self).deliver
+  end
+
+  def admin?
+    role == "admin"
+  end
+
+  def regular?
+    role == "regular"
+  end
+
+  def guest?
+    role == "guest"
   end
 end
