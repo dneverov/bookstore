@@ -17,7 +17,6 @@
 <%= link_to 'Edit', edit_book_path(@book) if policy(@book).edit? %> |
 <%= link_to 'Back', books_path %>
 
-
-<div id="likes">
-  <%= render partial: "likes" if user_signed_in? %>
-</div>
+<%= content_tag :div, id: "book_#{@book.id}_likes" do %>
+  <%= render partial: "likes", locals: {book: @book} if user_signed_in? %>
+<% end %>

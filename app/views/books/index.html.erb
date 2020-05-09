@@ -12,7 +12,11 @@
     <% @books.each do |book| %>
       <tr>
         <td><h2 class="mt-0"><small><%= link_to book.name, book %></small></h2>
-          <%= book.description %></td>
+          <%= book.description %>
+          <%= content_tag :p, id: "book_#{book.id}_likes" do %>
+            <%= render partial: "likes", locals: {book: book} %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', book if policy(book).show? %></td>
         <td><%= link_to 'Edit', edit_book_path(book) if policy(book).edit? %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' if policy(book).destroy? %></td>

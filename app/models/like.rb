@@ -9,4 +9,5 @@
 #  user_id    :integer
 #
 class Like < ApplicationRecord
+  belongs_to :user
 end

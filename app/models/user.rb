@@ -48,8 +48,13 @@ class User < ApplicationRecord
     book.likes.where(user_id: id).any?
   end
 
+  def avatar_url
+    hash = Digest::MD5.hexdigest(email)
+    "http://www.gravatar.com/avatar/#{hash}"
+  end
+
   private
     def user_role
-      role.downcase
+      role ? role.downcase : "guest"
     end
 end
