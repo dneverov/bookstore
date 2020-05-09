@@ -44,6 +44,10 @@ class User < ApplicationRecord
     AdminMailer.new_user(self).deliver
   end
 
+  def likes?(book)
+    book.likes.where(user_id: id).any?
+  end
+
   private
     def user_role
       role.downcase

@@ -16,3 +16,8 @@
 <%= link_to 'Publish', publish_book_path(@book), method: :patch, remote: true, data: {disable_with: "Publishing..."} if policy(@book).publish? %> |
 <%= link_to 'Edit', edit_book_path(@book) if policy(@book).edit? %> |
 <%= link_to 'Back', books_path %>
+
+
+<div id="likes">
+  <%= render partial: "likes" if user_signed_in? %>
+</div>

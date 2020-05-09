@@ -23,4 +23,6 @@ class Book < ApplicationRecord
   mount_uploader :cover, CoverUploader
 
   belongs_to :user, optional: true
+
+  has_many :likes
 end
