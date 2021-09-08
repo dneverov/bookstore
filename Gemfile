@@ -44,7 +44,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Better Errors
-  gem 'better_errors', '~> 2.7'
+  gem 'better_errors', '~> 2.8'
   gem 'binding_of_caller', '~> 0.8.0'
 
   gem 'annotate', '~> 3.1', '>= 3.1.1'
